@@ -25,3 +25,6 @@ void Vehiculo::setConsumo(float cons) {
 void Vehiculo::setVelocidad(float vel) {
 	this->velocidad = vel;
 }
+void Vehiculo::to_string() {
+	
+}

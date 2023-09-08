@@ -10,5 +10,6 @@ public:
 	void setCapacidad(float);
 	void setConsumo(float);
 	void setVelocidad(float);
+	void to_string();
 };
 

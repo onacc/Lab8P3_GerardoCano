@@ -13,28 +13,27 @@ void AdminArchivos::leerViajes() {
 		cerr << "No se pudo abrir el archivo" << endl;
 		exit(EXIT_FAILURE);
 	}
-	
 	archivoViajes.close();
-
-    string line;
-
-    while (getline(archivoViajes, line)) {
-        istringstream iss(line);
+    string linea;
+    while (getline(archivoViajes, linea)) {
+        istringstream iss(linea);
         string ciudad,v1_str,v2_str;
-
-            if (getline(iss, ciudad, ',') &&
-                getline(iss, v1_str, ',') &&
-                getline(iss, v2_str)) {
+            if (getline(iss, ciudad, ',') && getline(iss, v1_str, ',') && getline(iss, v2_str)) {
                 float v1 = stof(v1_str);
                 float v2 = stof(v2_str);
                 viajes.emplace_back(ciudad, v1, v2);
-
         }
         else {
-           cerr << "Error " << line << endl;
+           cerr << "Error " << linea << endl;
         }
     }
 }
 void AdminArchivos::guardarResultados() {
+    ofstream archivo("resultados.txt", ios::out);
+    if (!archivo) {
+        cerr << "No se pudo abrir el archivo" << endl;
+        exit(EXIT_FAILURE);
+    }
+
 
 }

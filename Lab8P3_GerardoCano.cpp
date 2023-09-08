@@ -20,12 +20,49 @@ void menu() {
         switch(opcion) {
         case 1:
             cout << "\n1. Motocicleta\n2. Furgon\n3. Camion";
-
+            switch (opcion) {
+            case 1:
+                float cilindraje;
+                cout << "\nIngrese cilindraje\n";
+                cin >> cilindraje;
+                Motocicleta moto(cilindraje);
+                Motocicleta *motoptr = &moto;
+                vehiculos.push_back(motoptr);
+                break;
+            case 2:
+                int ejes;
+                cout << "\nIngrese cantidad de ejes\n";
+                cin >> ejes;
+                Furgon fur(ejes);
+                Furgon* furptr = &fur;
+                vehiculos.push_back(furptr);
+                break;
+            case 3:
+                string tipo;
+                cout << "\nIngrese tipo\n";
+                cin >> tipo;
+                Camion cam(tipo);
+                Camion* camptr = &cam;
+                vehiculos.push_back(camptr);
+                break;
+            }
+        case 2:
+            for (Vehiculo* vehi : vehiculos) {
+                cout << vehi;
+            }
             break;
         case 3:
             am.leerViajes();
-            
             break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 0:
+            vehiculos.clear();
+            vehiculos.shrink_to_fit();
+            break;
+
 
         }
     } while (opcion);

@@ -9,8 +9,7 @@ class Viaje{
 public:
 	Viaje();
 	Viaje(string, float, float);
-	Viaje(string, float, float, float, float,Vehiculo*);
-	void asignarVehiculo();
+	void asignarVehiculo(Vehiculo*);
 	void calcularTiempoCosto();
 };
 
