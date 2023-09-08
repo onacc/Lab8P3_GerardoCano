@@ -24,6 +24,7 @@ void menu() {
             break;
         case 3:
             am.leerViajes();
+            
             break;
 
         }

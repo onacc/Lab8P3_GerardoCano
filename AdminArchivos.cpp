@@ -20,14 +20,18 @@ void AdminArchivos::leerViajes() {
 
     while (getline(archivoViajes, line)) {
         istringstream iss(line);
-        string ciudad;
-        float distancia, peso;
+        string ciudad,v1_str,v2_str;
 
-        if (iss >> ciudad >> distancia >> peso) {
-            viajes.emplace_back(ciudad, distancia, peso);
+            if (getline(iss, ciudad, ',') &&
+                getline(iss, v1_str, ',') &&
+                getline(iss, v2_str)) {
+                float v1 = stof(v1_str);
+                float v2 = stof(v2_str);
+                viajes.emplace_back(ciudad, v1, v2);
+
         }
         else {
-           cerr << "Error parsing line: " << line << endl;
+           cerr << "Error " << line << endl;
         }
     }
 }
