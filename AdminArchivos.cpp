@@ -17,11 +17,11 @@ void AdminArchivos::leerViajes() {
     string linea;
     while (getline(archivoViajes, linea)) {
         istringstream iss(linea);
-        string ciudad,v1_str,v2_str;
-            if (getline(iss, ciudad, ',') && getline(iss, v1_str, ',') && getline(iss, v2_str)) {
-                float v1 = stof(v1_str);
-                float v2 = stof(v2_str);
-                viajes.emplace_back(ciudad, v1, v2);
+        string ciudad,dist_str,carga_str;
+            if (getline(iss, ciudad, ',') && getline(iss, dist_str, ',') && getline(iss, carga_str)) {
+                float dist = stof(dist_str);
+                float carga = stof(carga_str);
+                viajes.emplace_back(ciudad, dist, carga);
         }
         else {
            cerr << "Error " << linea << endl;
@@ -34,6 +34,17 @@ void AdminArchivos::guardarResultados() {
         cerr << "No se pudo abrir el archivo" << endl;
         exit(EXIT_FAILURE);
     }
+    else {
+        for (Viaje* viaje : viajes) {
+            archivo << "Viaje: " << viaje->getCiudad() << ", " << viaje->getDistancia() << " km, " << viaje->getCarga() << " toneladas. Vehículo asignado: " <<
+                viaje->getVehiculo() << ". Tiempo estimado: " << viaje->getTiempoEstimado() << " horas. Costo estimado: $" << viaje->getCostoEstimado() << "." << endl;
+        }
+    }
+   
 
-
+}
+AdminArchivos::~AdminArchivos() {
+    for (Viaje* viaje : viajes) {
+        delete viaje;
+    }
 }

@@ -11,5 +11,12 @@ public:
 	Viaje(string, float, float);
 	void asignarVehiculo(Vehiculo*);
 	void calcularTiempoCosto();
+    string getCiudad();
+    float getDistancia();
+	float getCarga();    
+    float getTiempoEstimado();
+	float getCostoEstimado();
+	Vehiculo* getVehiculo();
+	~Viaje();
 };
 

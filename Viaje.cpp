@@ -15,3 +15,28 @@ void Viaje::calcularTiempoCosto() {
 	tiempoEstimado = distancia / vehiculo->getVelocidad();
 	costoEstimado = vehiculo->getConsumo() * distancia * 20;
 }
+string Viaje::getCiudad() {
+    return ciudad;
+}
+
+float Viaje::getDistancia() {
+    return distancia;
+}
+
+float Viaje::getCarga()  {
+    return carga;
+}
+
+float Viaje::getTiempoEstimado() {
+    return tiempoEstimado;
+}
+
+float Viaje::getCostoEstimado() {
+    return costoEstimado;
+}
+Vehiculo* Viaje::getVehiculo() {
+	return vehiculo;
+}
+Viaje::~Viaje() {
+	delete vehiculo;
+}

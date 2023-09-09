@@ -10,5 +10,6 @@ class AdminArchivos{
 public:
 	void leerViajes();
 	void guardarResultados();
+	~AdminArchivos();
 };
 
